@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>jialin00.com</title>
+        <link>https://jialin00.com</link>
+        <description>Exploring web technologies, cloud computing, and AWS, while integrating philosophical perspectives. We examine technological advancements and their impact on human understanding, emphasizing the essential role of philosophy in tech-driven life.</description>
+        <lastBuildDate>Mon, 16 Sep 2024 14:43:12 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Feeds</generator>
+        <image>
+            <title>jialin00.com</title>
+            <url>https://jialin00.com/favicon.ico</url>
+            <link>https://jialin00.com</link>
+        </image>
+        <copyright>All rights reserved 2024, JiaLin Huang</copyright>
+        <item>
+            <title><![CDATA[原子習慣]]></title>
+            <link>https://jialin00.com/html/r/atomic-habits</link>
+            <guid>https://jialin00.com/html/r/atomic-habits</guid>
+            <pubDate>Mon, 16 Sep 2024 14:43:12 GMT</pubDate>
+            <description><![CDATA[
+
+
+人們很容易高估一個決定性瞬間的重要性，也很容易低估每天都做些小改善的價值。我們往往如此說服自己：巨大的成功必定來自巨大的行動。無論是減重、創業、寫書、奪冠，或是大城其他任何目標，我們都會給自己壓力，期許要達成驚天動地的進展，好讓人津津樂道。
+
+我們往往期待進步是線性的，至少希望它快一點發生，但事實上，我們努力的成果經常姍姍來遲。過了幾個月，甚至幾年，我們才會明白先前做的工真正的價值。這可能造...]]></description>
+            <content:encoded><![CDATA[原子習慣]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[反抗者 L'Homme révolté]]></title>
+            <link>https://jialin00.com/html/r/camus-revolte</link>
+            <guid>https://jialin00.com/html/r/camus-revolte</guid>
+            <pubDate>Mon, 16 Sep 2024 14:43:12 GMT</pubDate>
+            <description><![CDATA[
+
+大綱
+
+
+
+page 28
+這一整個時代的錯誤，就在於根據一種絕望的情緒提出了、或自以為提出了普遍的行動準則。然而如果事關情緒，應該做的行動其實是超越它。巨大的痛苦或巨大的幸福，可以是推論的開端，是催動器，但是在整個推論過程中就不該再看到它、維持它。正視荒謬的感覺是合理的，用以診斷出自己本身或其他人身上的惡，但是這種感覺以及它意味的虛無主義，只應被視為出發點，一個親身經歷後發出的批評，已存在這...]]></description>
+            <content:encoded><![CDATA[反抗者 L'Homme révolté]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[窮查理的普通常識]]></title>
+            <link>https://jialin00.com/html/r/charles-munger-wit-and-wisdom</link>
+            <guid>https://jialin00.com/html/r/charles-munger-wit-and-wisdom</guid>
+            <pubDate>Mon, 16 Sep 2024 14:43:12 GMT</pubDate>
+            <description><![CDATA[
+先弄清楚應該別做什麼事，然後考慮接下來採取的行動。
+
+Lollapalooza Effect — 各種因素相互強化，並將彼此最大化。
+
+把投資領域侷限在「簡單而可以理解的備選項目」
+「關於投資，我們有三個選項：可以投資、不能投資、太難理解」
+
+購買股價合理的卓越企業，勝過購買股價便宜的平庸企業。
+價值評估到最後變成一種哲學的評估，而不是數學的衡量。
+
+聰明的飛行員即使才華過人，經驗再豐富，也絕不...]]></description>
+            <content:encoded><![CDATA[窮查理的普通常識]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[debug 超出能力範圍的話：docker system prune]]></title>
+            <link>https://jialin00.com/html/z/cloud/docker-system-prune</link>
+            <guid>https://jialin00.com/html/z/cloud/docker-system-prune</guid>
+            <pubDate>Mon, 16 Sep 2024 14:43:12 GMT</pubDate>
+            <description><![CDATA[
+有些 Dockerfile 在建置過程中有太多的 layers 或是太多遠端依賴 (e.g. ADD)，也很難一個一個找說是哪層出問題，尤其參雜行為還有些來自 remote 。
+而當你只是要等最後的 CMD 開始開發作業，卻發現怎麼重新 docker build 都沒啥用處時，就很崩潰。
+ps, image 指令一查，一堆你認不出來沒有 tags 稍加分辨時，就更崩潰～
+阿如果一個 build ...]]></description>
+            <content:encoded><![CDATA[debug 超出能力範圍的話：docker system prune]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Serverless: Lambda, API Gateway, DynamoDB Together]]></title>
+            <link>https://jialin00.com/html/z/cloud/serverless-lambda-apigateway-dynamodb-together</link>
+            <guid>https://jialin00.com/html/z/cloud/serverless-lambda-apigateway-dynamodb-together</guid>
+            <pubDate>Mon, 16 Sep 2024 14:43:12 GMT</pubDate>
+            <description><![CDATA[
+
+https://aws.amazon.com/tw/serverless/
+All services mentioned are belonging to serverless
+you don't need to launch an entire backend project. You can simply upload a single file (like an index.js) to...]]></description>
+            <content:encoded><![CDATA[Serverless: Lambda, API Gateway, DynamoDB Together]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[TCP, HTTP 1.0, HTTP 1.1 & HTTP 2.0]]></title>
+            <link>https://jialin00.com/html/z/network/http123</link>
+            <guid>https://jialin00.com/html/z/network/http123</guid>
+            <pubDate>Mon, 16 Sep 2024 14:43:12 GMT</pubDate>
+            <description><![CDATA[
+
+1 RTT 代表往返
+TCP 是在 Transport 層，下面是 Network 層也就是 IP。
+不管 HTTP 是什麼版本 TCP 都會有握手建立連線的三步驟。
+alice: segment() → packet(segment()) → frame(packet(segment()))
+bob: frame(packet(segment())) → packet(segment()) ...]]></description>
+            <content:encoded><![CDATA[TCP, HTTP 1.0, HTTP 1.1 & HTTP 2.0]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Frontend Server-Side Calls and CORS]]></title>
+            <link>https://jialin00.com/html/z/network/nextjs-cors</link>
+            <guid>https://jialin00.com/html/z/network/nextjs-cors</guid>
+            <pubDate>Mon, 16 Sep 2024 14:43:12 GMT</pubDate>
+            <description><![CDATA[
+
+When dealing with sensitive information such as login or account-related matters, including sessions and tokens, one might wonder how to hide this information instead of having it visible in the bro...]]></description>
+            <content:encoded><![CDATA[Frontend Server-Side Calls and CORS]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[HTTP Headers: Set-Cookie - SameSite 設置]]></title>
+            <link>https://jialin00.com/html/z/network/nextjs-samesite-lax</link>
+            <guid>https://jialin00.com/html/z/network/nextjs-samesite-lax</guid>
+            <pubDate>Mon, 16 Sep 2024 14:43:12 GMT</pubDate>
+            <description><![CDATA[
+
+起因於，如果在localhost:3000 登入得到的餅乾，無法在 thembase-subdomain.localhost:3000 使用。解決方式是：Cookie 使用了這些選項。
+
+
+SameSite 他有三種值：strict, lax, none
+
+https://publicsuffix.org/
+https://jsweibo.github.io/2019/03/25/什么是Pub...]]></description>
+            <content:encoded><![CDATA[HTTP Headers: Set-Cookie - SameSite 設置]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[SOAP > REST > HATEOAS]]></title>
+            <link>https://jialin00.com/html/z/network/soap-rest-hateoas</link>
+            <guid>https://jialin00.com/html/z/network/soap-rest-hateoas</guid>
+            <pubDate>Mon, 16 Sep 2024 14:43:12 GMT</pubDate>
+            <description><![CDATA[
+
+
+基於 XML 格式，用 SMTP 或是 HTTP 傳輸。
+淘汰原因：
+
+
+
+uri 會有動詞，母湯
+最常見的狀態。HTTP方法操作（目前大多數是這樣）
+若達到這個最高級狀態，有滿足 HATEOAS。除了回傳你要的資料，還會附帶該資源的parent，或是 child 的 uri。
+...]]></description>
+            <content:encoded><![CDATA[SOAP > REST > HATEOAS]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[廣義上的 translators]]></title>
+            <link>https://jialin00.com/html/z/os/broad-translators</link>
+            <guid>https://jialin00.com/html/z/os/broad-translators</guid>
+            <pubDate>Mon, 16 Sep 2024 14:43:12 GMT</pubDate>
+            <description><![CDATA[
+
+通常在寫的
+
+source code 要看相對是什麼，可以指 high-level language，也可以是 assembly language
+
+https://www.geeksforgeeks.org/language-processors-assembler-compiler-and-interpreter/
+廣義上包含所有具備「轉換形式」的工具
+high-level languag...]]></description>
+            <content:encoded><![CDATA[廣義上的 translators]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Preventing Unexpected Effects of Child Shells in Bash]]></title>
+            <link>https://jialin00.com/html/z/os/prevent-child-shell</link>
+            <guid>https://jialin00.com/html/z/os/prevent-child-shell</guid>
+            <pubDate>Mon, 16 Sep 2024 14:43:12 GMT</pubDate>
+            <description><![CDATA[
+
+In Bash scripting, the creation of child shells, often through pipelines or certain command structures, can lead to unexpected behavior in variable management.
+When having command like find ... | .....]]></description>
+            <content:encoded><![CDATA[Preventing Unexpected Effects of Child Shells in Bash]]></content:encoded>
+        </item>
+    </channel>
+</rss>

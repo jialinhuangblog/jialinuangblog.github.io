@@ -1,0 +1,315 @@
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Goroutines Hell — A Survival Guide to Panic and Deadlock</title></head><body><article class="page serif"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/help-alternate_red.svg"/></div><h1 class="page-title">Goroutines Hell — A Survival Guide to Panic and Deadlock</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-created_by"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedBy"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 10.4229C6.05176 10.4229 4.54785 11.1133 3.83008 11.9131C2.90039 10.9082 2.33301 9.55469 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 9.55469 13.1064 10.9082 12.1699 11.9131C11.4521 11.1133 9.94824 10.4229 8 10.4229ZM8 9.30176C9.32617 9.30859 10.3516 8.18066 10.3516 6.71094C10.3516 5.33008 9.31934 4.18164 8 4.18164C6.6875 4.18164 5.6416 5.33008 5.64844 6.71094C5.65527 8.18066 6.68066 9.28809 8 9.30176Z"></path></svg></span>Created by</th><td><span class="user"><img src="Goroutines%20Hell%20%E2%80%94%20A%20Survival%20Guide%20to%20Panic%20and%20De%20ffaa7fd963d1420195a692d067bf224c/IMG_2295.jpg" class="icon user-icon"/>JiaLin Huang</span></td></tr><tr class="property-row property-row-last_edited_time"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>Last edited</th><td><time>@2024年10月2日 19:14</time></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><td><span class="selected-value select-value-color-purple">Post</span><span class="selected-value select-value-color-default">golang</span><span class="selected-value select-value-color-orange">mutex</span><span class="selected-value select-value-color-gray">panic</span></td></tr></tbody></table></header><div class="page-body"><p class="">In the page, this guide will include:</p><ul class="bulleted-list"><li style="list-style-type:disc">What triggers panic and deadlock</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Recognize their symptoms and differences</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Learn strategies to prevent and handle them</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">How debugging these issues</li></ul><h1 class="">panic</h1><p class="">When it happens:</p><ul class="bulleted-list"><li style="list-style-type:disc">Immediately stops the current goroutine, bubbles up the error, executes each previously registered defer<ul class="bulleted-list"><li style="list-style-type:circle">Code after panic and defers registered after panic won&#x27;t execute</li></ul></li></ul><ul class="bulleted-list"><li style="list-style-type:disc">If recover() fails, the program crashes</li></ul><h3 class="">🚫 Send data for closed channel</h3><ul class="toggle"><li><details open=""><summary>code</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-Go">func main() {
+	defer fmt.Println(&quot;This line will work after panic.&quot;)
+	ch := make(chan int)
+
+	close(ch)
+
+	ch &lt;- 1 // send data to closed channel
+	defer fmt.Println(&quot;This line won&#x27;t work after panic.&quot;)
+	fmt.Println(&quot;This line won&#x27;t be executed&quot;)
+}
+
+// panic: send on closed channel</code></pre></details></li></ul><h3 class="">🚫 Access violation</h3><ul class="toggle"><li><details open=""><summary>code</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-Go">type Person struct {
+	Name string
+}
+
+func main() {
+	var p *Person
+	fmt.Println(p.Name)
+	
+}
+
+// panic: runtime error: invalid memory address or nil pointer dereference</code></pre></details></li></ul><h3 class="">🚫 Nil Pointer reference</h3><ul class="toggle"><li><details open=""><summary>code</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-Go">func panicExample() {
+	defer fmt.Println(&quot;panic  example&quot;)
+
+	a := []int{1, 2, 3}
+	fmt.Println(a[5])
+}
+
+// panic: runtime error: index out of range [5] with length 3</code></pre></details></li></ul><h3 class="">🚫 Type Assertion Error</h3><ul class="toggle"><li><details open=""><summary>code</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-Go">func main() {
+	var i interface{} = &quot;hello&quot;
+	num := i.(int)
+	fmt.Println((num))
+	//panic: interface conversion: interface {} is string, not int
+}</code></pre></details></li></ul><p class="">
+</p><h1 class="">deadlock</h1><p class="">Your logic is bad</p><ul class="bulleted-list"><li style="list-style-type:disc">We&#x27;re all waiting for each other, like your office BLOCKING ISSUE</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Only some can be detected, and when detected, the program exits</li></ul><h3 class="">⚠️ Deadlock - Mutex</h3><p class="">each goroutine try get each other lock</p><ul class="toggle"><li><details open=""><summary>code</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-Go">func mutexDeadlock() {
+	var mutex1, mutex2 sync.Mutex
+
+	go func() {
+		mutex1.Lock()
+		fmt.Println(&quot;Goroutine 1: GOT mutex1&quot;)
+		time.Sleep(100 * time.Millisecond)
+
+		fmt.Println(&quot;Goroutine 1: TRY mutex2&quot;)
+		mutex2.Lock() // deadlock
+		fmt.Println(&quot;Goroutine 1: GOT mutex2&quot;)
+		defer mutex2.Unlock()
+		defer mutex1.Unlock()
+	}()
+
+	go func() {
+		mutex2.Lock()
+		fmt.Println(&quot;Goroutine 2: GOT mutex2&quot;)
+		time.Sleep(100 * time.Millisecond)
+
+		fmt.Println(&quot;Goroutine 2: TRY mutex1&quot;)
+		mutex1.Lock() // deadlock
+		fmt.Println(&quot;Goroutine 2: GOT mutex1&quot;)
+		defer mutex1.Unlock()
+		defer mutex2.Unlock()
+	}()
+
+	time.Sleep(time.Second)
+}</code></pre></details></li></ul><h3 class="">🚫 Deadlock - Channel</h3><ul class="toggle"><li><details open=""><summary>code</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-Go">func channelDeadlock() {
+	ch := make(chan int) // no buffer
+	// deadlock here
+	ch &lt;- 1 // no receiver
+	fmt.Println(&lt;-ch) // never been here
+}
+// fatal error: all goroutines are asleep - deadlock!</code></pre></details></li></ul><p class="">
+</p><h3 class="">Observing Mutex Deadlocks</h3><p class="">Unlike channel deadlocks which produce immediate fatal errors, mutex deadlocks can be more subtle and challenging to detect. Here are two effective methods for identifying mutex deadlocks:</p><p class="">
+</p><p class=""><strong>Method 1: Goroutine Count Monitoring</strong></p><p class="">By tracking the number of active goroutines, you can detect potential deadlocks.</p><p class="">If the goroutine count remains constant and elevated, it might indicate a deadlock.</p><ul class="toggle"><li><details open=""><summary>code</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-Go">func main() {
+	go func() {
+		for {
+			fmt.Printf(&quot;Number of goroutines: %d\n&quot;, runtime.NumGoroutine())
+			time.Sleep(time.Second)
+		}
+	}()
+	mutexDeadlock()
+	time.Sleep(100 * time.Second) // give enough time to observe
+}</code></pre></details></li></ul><p class="">
+</p><p class=""><strong>Method 2: Runtime Profiling with pprof</strong></p><p class="">For more detailed analysis, Go&#x27;s pprof tool provides comprehensive insights:</p><ul class="toggle"><li><details open=""><summary>code</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-Go">import (
+  // ...
+	_ &quot;net/http/pprof&quot;
+)
+
+func main() {
+	// Start pprof server
+	go func() {
+		log.Println(http.ListenAndServe(&quot;localhost:6060&quot;, nil))
+	}()
+
+	mutexDeadlock()
+	time.Sleep(100 * time.Second) // give enough time to observe
+}</code></pre></details></li></ul><p class="">Navigate to <code>http://localhost:6060/debug/pprof/goroutine?debug=1</code> in your browser to view detailed goroutine states, including:</p><ul class="bulleted-list"><li style="list-style-type:disc">Locked goroutines</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Stack traces</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Lock contention points</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-Plain Text">1 @ 0x1001f7b88 0x10020bd98 0x10020bd75 0x10022bcc8 0x100249554 0x1004004a0 0x10040044d 0x100230284
+#	0x10022bcc7	sync.runtime_SemacquireMutex+0x27	/usr/local/go/src/runtime/sema.go:77
+#	0x100249553	sync.(*Mutex).lockSlow+0x173		/usr/local/go/src/sync/mutex.go:171
+#	0x10040049f	sync.(*Mutex).Lock+0x16f		/usr/local/go/src/sync/mutex.go:90
+#	0x10040044c	main.mutexDeadlock.func2+0x11c		/Users/jialinhuang/Desktop/go-websocket/main.go:47
+
+1 @ 0x1001f7b88 0x10020bd98 0x10020bd75 0x10022bcc8 0x100249554 0x100400820 0x1004007cd 0x100230284
+#	0x10022bcc7	sync.runtime_SemacquireMutex+0x27	/usr/local/go/src/runtime/sema.go:77
+#	0x100249553	sync.(*Mutex).lockSlow+0x173		/usr/local/go/src/sync/mutex.go:171
+#	0x10040081f	sync.(*Mutex).Lock+0x16f		/usr/local/go/src/sync/mutex.go:90
+#	0x1004007cc	main.mutexDeadlock.func1+0x11c		/Users/jialinhuang/Desktop/go-websocket/main.go:35</code></pre><p class="">If you want visualization</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-Bash">brew install graphviz
+
+# when go run main.go
+
+go tool pprof http://localhost:6060/debug/pprof/goroutine
+# generate a compressed profile in your
+# /Users/{???}/pprof/pprof.main.alloc_objects.alloc_space.inuse_objects.inuse_space.004.pb.gz
+
+
+# to serve that profile you just created.
+go tool pprof -http=:8080 /Users/jialinhuang/pprof/pprof.main.goroutine.004.pb.gz
+# Serving web UI on http://localhost:8080</code></pre><p class="">
+</p><p class="">
+</p><p class="">
+</p><h1 class="">Deadlock solution</h1><h3 class="">Deadlock Mutex Solution - same order</h3><p class="">Goroutine1 gets lock1, goroutine2 is blocked because lock1 is already taken by goroutine1, so goroutine2 will be in a blocking state until goroutine1 releases the lock.</p><p class=""><mark class="highlight-red"><strong>NOT GOOD ENOUGH</strong></mark>: This becomes hard to manage when you have many locks</p><ul class="toggle"><li><details open=""><summary>code</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-Go">func mutexSolution1() {
+	var mutex1, mutex2 sync.Mutex
+	var wg sync.WaitGroup
+
+	wg.Add(2)
+
+	// both lock thing in the same order：first mutex1 then mutex2
+	for i := 0; i &lt; 2; i++ {
+		go func(id int) {
+			defer wg.Done()
+
+			mutex1.Lock()
+			fmt.Printf(&quot;Goroutine %d: LOCKING mutex1\n&quot;, id)
+
+			// some job
+			time.Sleep(100 * time.Millisecond)
+
+			fmt.Printf(&quot;Goroutine %d: TRY LOCKING mutex2\n&quot;, id)
+			mutex2.Lock()
+
+			//
+			fmt.Printf(&quot;Goroutine %d: USING...\n&quot;, id)
+			time.Sleep(50 * time.Millisecond)
+
+			mutex2.Unlock()
+			mutex1.Unlock()
+		}(i)
+	}
+
+	wg.Wait()
+}</code></pre></details></li></ul><h3 class="">Deadlock Mutex Solution - lock all</h3><p class="">Barbaric one</p><p class=""><mark class="highlight-red"><strong>NOT GOOD ENOUGH</strong></mark>: This brute force approach isn&#x27;t sustainable long-term</p><ul class="toggle"><li><details open=""><summary>code</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-Go">func mutexSolution2() {
+	locks := OrderedLocks{}
+
+	go func() {
+		locks.LockBoth()
+		fmt.Println(&quot;Goroutine 1: GET ALL LOCKS&quot;)
+		fmt.Println(&quot;Goroutine 1: DONE&quot;)
+		locks.UnlockBoth()
+	}()
+
+	go func() {
+		locks.LockBoth()
+		fmt.Println(&quot;Goroutine 2: GET ALL LOCKS&quot;)
+		fmt.Println(&quot;Goroutine 2: DONE&quot;)
+		locks.UnlockBoth()
+	}()
+
+	time.Sleep(time.Second)
+}
+
+type OrderedLocks struct {
+	mutex1 sync.Mutex
+	mutex2 sync.Mutex
+}
+
+func (l *OrderedLocks) LockBoth() {
+	l.mutex1.Lock()
+	l.mutex2.Lock()
+}
+
+func (l *OrderedLocks) UnlockBoth() {
+	l.mutex2.Unlock()
+	l.mutex1.Unlock()
+}</code></pre></details></li></ul><h3 class="">Deadlock Mutex Solution - TryLock</h3><p class="">TryLock is available after Go 1.18</p><p class="">Here we use Context for communication. Don&#x27;t overthink it - context is just a tool for time-limited actions<br/>For simple signal passing, both Channel and Context work.<br/>Choose Channel for synchronization needs, Context for time-limited stuff like HTTP<br/></p><p class="">
+</p><p class="">The idea below is:</p><ol type="1" class="numbered-list" start="1"><li>Each goroutine first locks its corresponding index lock</li></ol><ol type="1" class="numbered-list" start="2"><li>Then tries to lock the other one</li></ol><ol type="1" class="numbered-list" start="3"><li>Finds out it can&#x27;t because the other lock is taken by another goroutine</li></ol><ol type="1" class="numbered-list" start="4"><li>In tryLock, changing the default behavior <code>time.Sleep(1 * time.Millisecond)</code> to <code>time.Sleep(100 * time.Microsecond)</code> can effectively <strong>GET ALL LOCKS</strong></li></ol><ul class="toggle"><li><details open=""><summary>code</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-Go">func trylockSolution() {
+	var mutexes [2]sync.Mutex
+	var wg sync.WaitGroup
+
+	tryLock := func(m *sync.Mutex, timeout time.Duration, index int) bool {
+		ctx, cancel := context.WithTimeout(context.Background(), timeout)
+		defer cancel()
+
+		for {
+			select {
+			case &lt;-ctx.Done():
+				return false
+			default:
+				if m.TryLock() {
+					fmt.Printf(&quot;Goroutine %d: Lock Success\n&quot;, index)
+					return true
+				}
+				time.Sleep(1 * time.Millisecond) // reduce interval here, 
+			}
+		}
+	}
+
+	wg.Add(2)
+
+	for i := 0; i &lt; 2; i++ {
+			go func(i int) {
+			defer wg.Done()
+
+			// Try to lock the first mutex
+			if !tryLock(&amp;mutexes[i], 500*time.Millisecond, i+1) {
+				fmt.Printf(&quot;Goroutine %d: CAN&#x27;t GET mutex%d, GIVE UP!\n&quot;, i+1, i+1)
+				return
+			}
+			defer mutexes[i].Unlock()
+
+			time.Sleep(100 * time.Millisecond)
+
+			// Try to lock the second mutex (in reverse order for the second goroutine)
+			secondLock := (i + 1) % 2
+			if !tryLock(&amp;mutexes[secondLock], 500*time.Millisecond, i+1) {
+				fmt.Printf(&quot;Goroutine %d: CAN&#x27;t GET mutex%d, GIVE UP!\n&quot;, i+1, secondLock+1)
+				return
+			}
+			defer mutexes[secondLock].Unlock()
+
+			fmt.Printf(&quot;Goroutine %d: GET ALL LOCKS\n&quot;, i+1)
+		}(i)
+	}
+
+	wg.Wait()
+}
+
+/*
+
+Goroutine 1: Lock Success
+Goroutine 2: Lock Success
+Goroutine 1: CAN&#x27;t GET mutex2, GIVE UP!
+Goroutine 2: CAN&#x27;t GET mutex1, GIVE UP!
+
+*/
+
+
+// small chance will be
+
+/*
+Iteration 7
+Goroutine 2: Lock Success
+Goroutine 1: Lock Success
+Goroutine 2: CAN&#x27;t GET mutex1, GIVE UP!
+Goroutine 1: Lock Success
+Goroutine 1: GET ALL LOCKS
+*/</code></pre></details></li></ul><h3 class="">Deadlock Channel Solution</h3><p class="">If you prefer Go&#x27;s CSP style</p><ul class="toggle"><li><details open=""><summary>code</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-Go">func channelSolution() {
+	resource1 := make(chan struct{}, 1)
+	resource2 := make(chan struct{}, 1)
+	var wg sync.WaitGroup
+
+	resource1 &lt;- struct{}{}
+	resource2 &lt;- struct{}{}
+
+	wg.Add(2)
+
+	go func() {
+		defer wg.Done()
+
+		select {
+		case &lt;-resource1:
+			fmt.Println(&quot;Goroutine 1: GET RESOURCE 1&quot;)
+			time.Sleep(100 * time.Millisecond)
+
+			select {
+			case &lt;-resource2:
+				fmt.Println(&quot;Goroutine 1: GET RESOURCE 2&quot;)
+				time.Sleep(100 * time.Millisecond)
+				resource2 &lt;- struct{}{} //release resource
+			default:
+				fmt.Println(&quot;Goroutine 1: CAN&#x27;T GET RESOURCE 2&quot;)
+			}
+
+			resource1 &lt;- struct{}{}
+		default:
+			fmt.Println(&quot;Goroutine 1: CAN&#x27;T GET RESOURCE 1&quot;)
+		}
+	}()
+
+	go func() {
+		defer wg.Done()
+
+		select {
+		case &lt;-resource2:
+			fmt.Println(&quot;Goroutine 2: GET RESOURCE 2&quot;)
+			time.Sleep(100 * time.Millisecond)
+
+			select {
+			case &lt;-resource1:
+				fmt.Println(&quot;Goroutine 2: GET RESOURCE 1&quot;)
+				time.Sleep(100 * time.Millisecond)
+				resource1 &lt;- struct{}{} // release resource
+			default:
+				fmt.Println(&quot;Goroutine 2: CAN&#x27;T GET RESOURCE 1&quot;)
+			}
+
+			resource2 &lt;- struct{}{}
+		default:
+			fmt.Println(&quot;Goroutine 2: CAN&#x27;T GET RESOURCE 2&quot;)
+		}
+	}()
+
+	wg.Wait()
+}</code></pre></details></li></ul><p class="">
+</p><p class="">
+</p><p class="">
+</p><h1 class="">Comparison</h1><table class="simple-table"><tbody><tr><td class="">Aspect</td><td class="" style="width:273px"><strong>Panic</strong></td><td class=""><strong>Deadlock</strong></td></tr><tr><td class="">Timing</td><td class="" style="width:273px">immediately</td><td class="">Maybe wait for unsure</td></tr><tr><td class="">Recovery</td><td class="" style="width:273px">yes with recover()</td><td class="">no, program restart</td></tr><tr><td class="">Detection</td><td class="" style="width:273px">Explicit error message</td><td class="">Often requires monitoring tools</td></tr><tr><td class="">Scope</td><td class="" style="width:273px">Affects specific goroutine</td><td class="">Potentially system-wide</td></tr><tr><td class="">Debugging</td><td class="" style="width:273px">obvious stack and error message, easy</td><td class="">Complex, requires runtime analysis</td></tr></tbody></table><p class="">
+</p><p class="">
+</p><h1 class="">References</h1><p class=""><a href="https://wangdaming.gitbooks.io/golang/content/tong_bu_lock.html">https://wangdaming.gitbooks.io/golang/content/tong_bu_lock.html</a></p><p class=""><a href="https://golang.design/go-questions/channel/csp/">https://golang.design/go-questions/channel/csp/</a></p><p class=""><a href="https://ithelp.ithome.com.tw/articles/10235172">https://ithelp.ithome.com.tw/articles/10235172</a></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body>

@@ -1,0 +1,99 @@
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>tokenize-xchange-readme</title></head><body><article class="page serif"><header><h1 class="page-title">tokenize-xchange-readme</h1><p class="page-description"></p></header><div class="page-body"><h1 class="">Page Structure and Functionality</h1><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-Bash">./app/tokenize
+├── Symbol.tsx
+├── Symbols.tsx
+├── [symbol]
+│   ├── WebsocketChart.tsx
+│   └── page.tsx
+├── constants.ts
+├── page.tsx
+└── use-updown-changes.ts
+</code></pre><ol type="1" class="numbered-list" start="1"><li><code>use-updown-changes</code> is used to detect the current and previous states to determine what kind of <code>isUp</code>, <code>isDown</code> status to give to the Symbol component for animation rendering.</li></ol><ol type="1" class="numbered-list" start="2"><li><code>Symbols</code> is the initial dashboard, displaying 10 default quotes.</li></ol><ol type="1" class="numbered-list" start="3"><li>Both <code>Symbol</code> &amp; <code>WebsocketChart</code> use <strong>React.useEffect</strong> to manage WebSocket subscriptions and lifecycle to avoid performance issues caused by unclosed connections. Example of WebSocket management:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-JavaScript">  useEffect(() =&gt; {
+    wsRef.current = new WebSocket(&#x27;wss://stream.binance.com:9443/ws&#x27;)
+    wsRef.current.onopen = () =&gt; {
+      // ...
+    }
+    wsRef.current.onmessage = event =&gt; {
+      // ...
+    }
+    wsRef.current.onclose = () =&gt; {
+			// ...
+    }
+
+    return () =&gt; {
+      if (wsRef.current) {
+        wsRef.current.close()
+      }
+    }
+  }, [])</code></pre><ul class="bulleted-list"><li style="list-style-type:disc"><code>Symbol</code> subscribes to <code>@aggTrade</code> events<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-JavaScript">wsRef.current = new WebSocket(&#x27;wss://stream.binance.com:9443/ws&#x27;)
+
+wsRef.current.onopen = () =&gt; {
+  const sessionId = randomBytes(16).toString(&#x27;hex&#x27;)
+
+  const message = {
+    id: sessionId,
+    method: &#x27;SUBSCRIBE&#x27;,
+    params: [symbol.toLowerCase() + &#x27;@aggTrade&#x27;],
+  }
+
+  wsRef.current?.send(JSON.stringify(message))
+}</code></pre></li></ul><ul class="bulleted-list"><li style="list-style-type:disc"><code>WebsocketChart</code> <ol type="1" class="numbered-list" start="1"><li>use Rest API to get the history</li></ol><ol type="1" class="numbered-list" start="2"><li>subscribes to <code>@kline_1s</code> events for updating.</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-JavaScript">wsRef.current = new WebSocket(&#x27;wss://stream.binance.com:9443/ws&#x27;)
+
+wsRef.current.onopen = () =&gt; {
+  const sessionId = randomBytes(16).toString(&#x27;hex&#x27;)
+
+  const message = {
+    method: &#x27;SUBSCRIBE&#x27;,
+    params: [`${symbol.toLowerCase()}@kline_1s`],
+    id: sessionId,
+  }
+  wsRef.current?.send(JSON.stringify(message))
+}</code></pre></li></ul></li></ol><ol type="1" class="numbered-list" start="4"><li>The code uses <code>useRef()</code> for variable management to avoid unnecessary renders. It also customizes the chart based on the user&#x27;s system dark mode setting.<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-JavaScript">// init chart
+useEffect(() =&gt; {
+  if (typeof window !== &#x27;undefined&#x27; &amp;&amp; divRef.current) {
+    const { width, height } = divRef.current.getBoundingClientRect()
+    chartRef.current = createChart(divRef.current, { width, height, ... })
+    seriesRef.current = chartRef.current.addCandlestickSeries({
+      upColor: isDarkMode ? &#x27;#81c784&#x27; : &#x27;#26a69a&#x27;,
+      //...
+      wickDownColor: isDarkMode ? &#x27;#e57373&#x27; : &#x27;#ef5350&#x27;,
+    })
+
+    chartRef.current.applyOptions({
+      timeScale: {
+        timeVisible: true,
+        secondsVisible: true,
+        tickMarkFormatter: (time: Time, _tickMarkType: TickMarkType, locale: string) =&gt; {
+          const date = new Date((time as number) * 1000)
+          return date.toLocaleTimeString(locale, { hour12: false })
+        },
+      },
+    })
+
+    console.log(&#x27;chart and series initialized&#x27;, chartRef.current, seriesRef.current)
+
+    return () =&gt; {
+      if (chartRef.current) {
+        chartRef.current.remove()
+      }
+    }
+  }
+}, [])</code></pre></li></ol><p class="">
+</p><h1 class=""><strong>The REST APIs &amp; WebSocket usage endpoints</strong></h1><ol type="1" class="numbered-list" start="1"><li><strong>Websocket</strong>: Kline/Candlestick Streams for UTC<p class=""><a href="https://github.com/binance/binance-spot-api-docs/blob/master/web-socket-streams.md#klinecandlestick-streams-for-utc">https://github.com/binance/binance-spot-api-docs/blob/master/web-socket-streams.md#klinecandlestick-streams-for-utc</a></p></li></ol><ol type="1" class="numbered-list" start="2"><li><strong>Websocket</strong>: Aggregate Trade Streams<p class=""><a href="https://github.com/binance/binance-spot-api-docs/blob/master/web-socket-streams.md#aggregate-trade-streams">https://github.com/binance/binance-spot-api-docs/blob/master/web-socket-streams.md#aggregate-trade-streams</a></p></li></ol><ol type="1" class="numbered-list" start="3"><li><strong>REST API</strong>: Exchange information<p class=""><a href="https://github.com/binance/binance-spot-api-docs/blob/master/web-socket-streams.md#aggregate-trade-streams">https://github.com/binance/binance-spot-api-docs/blob/master/web-socket-streams.md#aggregate-trade-streams</a></p></li></ol><ol type="1" class="numbered-list" start="4"><li><strong>REST API</strong>: Kline/Candlestick data<p class=""><a href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#klinecandlestick-data">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#klinecandlestick-data</a></p></li></ol><h1 class="">Dependencies</h1><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-JavaScript">&quot;dependencies&quot;: {
+  &quot;@emotion/css&quot;: &quot;^11.11.2&quot;,
+  &quot;@emotion/react&quot;: &quot;^11.11.3&quot;,
+  &quot;@emotion/styled&quot;: &quot;^11.11.0&quot;,,
+  &quot;crypto&quot;: &quot;^1.0.1&quot;,
+  &quot;dayjs&quot;: &quot;^1.11.13&quot;,
+  &quot;lightweight-charts&quot;: &quot;^4.2.0&quot;,
+  &quot;next&quot;: &quot;^14.2.12&quot;,
+  &quot;react&quot;: &quot;^18.3.1&quot;,
+  &quot;react-dom&quot;: &quot;^18.3.1&quot;,
+},</code></pre><p class="">
+</p><h1 class="">Potential Improvements</h1><p class="">If considering future page interactions that may create many components, a custom store could be built to manage all WebSocket returns and event management. This could expose methods like:</p><ol type="a" class="numbered-list" start="1"><li>Simple on/off for users:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-JavaScript">// place in useEffect for lifecycle management.
+store.subscribe(symbol)
+store.unsubscribe(symbol)</code></pre></li></ol><ol type="a" class="numbered-list" start="2"><li> Methods for Binance events and convenience:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre class="code"><code class="language-JavaScript">store.unsubscribeAll() // turn off all the websocket
+store.listSubscription()</code></pre></li></ol><p class="">
+</p><p class="">The TradingView chart styling could be customized further. Currently, styles are written directly in the components, but this could be extracted to make the components cleaner and more focused.</p><p class="">
+</p><p class="">
+</p><p class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body>
