@@ -4,7 +4,7 @@
         <title>jialin00.com</title>
         <link>https://jialin00.com</link>
         <description>Exploring web technologies, cloud computing, and AWS, while integrating philosophical perspectives. We examine technological advancements and their impact on human understanding, emphasizing the essential role of philosophy in tech-driven life.</description>
-        <lastBuildDate>Sun, 20 Oct 2024 11:18:11 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 20 Oct 2024 14:41:15 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feeds</generator>
         <image>
@@ -17,7 +17,7 @@
             <title><![CDATA[原子習慣]]></title>
             <link>https://jialin00.com/html/r/atomic-habits</link>
             <guid>https://jialin00.com/html/r/atomic-habits</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 
@@ -30,7 +30,7 @@
             <title><![CDATA[窮查理的普通常識]]></title>
             <link>https://jialin00.com/html/r/charles-munger-wit-and-wisdom</link>
             <guid>https://jialin00.com/html/r/charles-munger-wit-and-wisdom</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 先弄清楚應該別做什麼事，然後考慮接下來採取的行動。
 
@@ -49,7 +49,7 @@ Lollapalooza Effect — 各種因素相互強化，並將彼此最大化。
             <title><![CDATA[反抗者 L'Homme révolté]]></title>
             <link>https://jialin00.com/html/r/camus-revolte</link>
             <guid>https://jialin00.com/html/r/camus-revolte</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 大綱
@@ -61,10 +61,20 @@ page 28
             <content:encoded><![CDATA[反抗者 L'Homme révolté]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[Private Channels in AWS Networking]]></title>
+            <link>https://jialin00.com/html/z/cloud/aws-private-channel-networking</link>
+            <guid>https://jialin00.com/html/z/cloud/aws-private-channel-networking</guid>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
+            <description><![CDATA[
+Non-encrypted high-speed dedicated channel that directly interfaces with AWS services. The key difference lies in the VIF (Virtual Interface) endpoint:
+Since it's non-encrypted, you can build VPN on ...]]></description>
+            <content:encoded><![CDATA[Private Channels in AWS Networking]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[AWS Snapshots vs. Backups —  Differences in Terms and Service Support]]></title>
             <link>https://jialin00.com/html/z/cloud/aws-snapshot-backup-term</link>
             <guid>https://jialin00.com/html/z/cloud/aws-snapshot-backup-term</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 When AWS services store snapshots, configurations, or backups in S3:
 Backups and snapshots are similar in description, but with key differences:
@@ -72,20 +82,10 @@ Default snapshots prioritize quick recovery and high a...]]></description>
             <content:encoded><![CDATA[AWS Snapshots vs. Backups —  Differences in Terms and Service Support]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[Private Channels in AWS Networking]]></title>
-            <link>https://jialin00.com/html/z/cloud/aws-private-channel-networking</link>
-            <guid>https://jialin00.com/html/z/cloud/aws-private-channel-networking</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
-            <description><![CDATA[
-Non-encrypted high-speed dedicated channel that directly interfaces with AWS services. The key difference lies in the VIF (Virtual Interface) endpoint:
-Since it's non-encrypted, you can build VPN on ...]]></description>
-            <content:encoded><![CDATA[Private Channels in AWS Networking]]></content:encoded>
-        </item>
-        <item>
             <title><![CDATA[Vue Nuxt Dynamic Path Resolution Issue]]></title>
             <link>https://jialin00.com/html/z/frontend/vue-nuxt-dynamic-path-resolution</link>
             <guid>https://jialin00.com/html/z/frontend/vue-nuxt-dynamic-path-resolution</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 <img :src="'~assets/images/cat.png'" />
 this one doesn’t work
@@ -97,7 +97,7 @@ When I wanted to assign an image path through a variable for the <img> element, 
             <title><![CDATA[AWS RDS Database Enginesssss Comparison]]></title>
             <link>https://jialin00.com/html/z/cloud/aws-rds-sql-engine-comparsion</link>
             <guid>https://jialin00.com/html/z/cloud/aws-rds-sql-engine-comparsion</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 I read about RDS and thought it would be good to make a comparison. There are many SQL options available in the market, but aside from simple query usage, I haven’t seriously looked into why there a...]]></description>
@@ -107,7 +107,7 @@ I read about RDS and thought it would be good to make a comparison. There are ma
             <title><![CDATA[use client doesn't guarantee complete client-side rendering]]></title>
             <link>https://jialin00.com/html/z/frontend/use-client-ssr-ssg</link>
             <guid>https://jialin00.com/html/z/frontend/use-client-ssr-ssg</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 I tried to add window to the dependencies of a useEffect hook in a component declared with use client, but found it's not allowed during next build.
@@ -122,7 +122,7 @@ This builds normally...]]></description>
             <title><![CDATA[How SameSite, Same-Origin, and CORS Partially Block XSS and CSRF Attacks]]></title>
             <link>https://jialin00.com/html/z/frontend/samesite-sameorigin-cors-xss-csrf</link>
             <guid>https://jialin00.com/html/z/frontend/samesite-sameorigin-cors-xss-csrf</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 
@@ -133,7 +133,7 @@ I’ve read many articles on XSS, CSRF, CORS, and SameSite cookies before, but t
             <title><![CDATA[AWS Services Spectrum — From Self Managed to Fully Managed, and Serverless]]></title>
             <link>https://jialin00.com/html/z/cloud/aws-serverless-managed-spectrum</link>
             <guid>https://jialin00.com/html/z/cloud/aws-serverless-managed-spectrum</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 The key difference between these two is "whether you need to adjust the resources used."
 
@@ -147,7 +147,7 @@ https://aws.amazon.com/serverles...]]></description>
             <title><![CDATA[Behind the Scenes: Anycast and Its Impact on CDNs]]></title>
             <link>https://jialin00.com/html/z/network/anycast-cdn-1</link>
             <guid>https://jialin00.com/html/z/network/anycast-cdn-1</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 When looking into content delivery solutions offered by major companies like Cloudflare, Amazon CloudFront, and Google Cloud CDN, you'll find they all provide similar content delivery network service...]]></description>
             <content:encoded><![CDATA[Behind the Scenes: Anycast and Its Impact on CDNs]]></content:encoded>
@@ -156,7 +156,7 @@ When looking into content delivery solutions offered by major companies like Clo
             <title><![CDATA[EC2 Address —  Auto-Assigned Public IP vs. Elastic IP vs. No-IP (DDNS)]]></title>
             <link>https://jialin00.com/html/z/cloud/ec2-address-types</link>
             <guid>https://jialin00.com/html/z/cloud/ec2-address-types</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 
@@ -169,7 +169,7 @@ DDNS (Dynamic DNS) is a service that automatically updates domain name resolutio
             <title><![CDATA[Concurrency in Go: From Basics to Better Practices]]></title>
             <link>https://jialin00.com/html/z/backend/go-concurrency-waitgroup-channel</link>
             <guid>https://jialin00.com/html/z/backend/go-concurrency-waitgroup-channel</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 When you want to do more than one thing at the same time...
@@ -182,7 +182,7 @@ It's pretty dumb, but hey, we all start somewhere...]]></description>
             <title><![CDATA[Django: works with uwsgi, or even works with uwsgi & nginx together]]></title>
             <link>https://jialin00.com/html/z/backend/python-django-uwsgi-nginx</link>
             <guid>https://jialin00.com/html/z/backend/python-django-uwsgi-nginx</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 The final architecture of this page will be:
@@ -200,7 +200,7 @@ I've written golang before and you can use go tidy to automatically register ne.
             <title><![CDATA[Goroutines Hell — A Survival Guide to Panic and Deadlock]]></title>
             <link>https://jialin00.com/html/z/backend/golang-panic-deadlock</link>
             <guid>https://jialin00.com/html/z/backend/golang-panic-deadlock</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 In the page, this guide will include:
 When it happens:
@@ -215,7 +215,7 @@ Unlike channel deadlocks which produce immediate fatal errors, mutex deadlocks c
             <title><![CDATA[The Multi-Core Revolution in CPUs]]></title>
             <link>https://jialin00.com/html/z/os/clock-frequency-multi-cores</link>
             <guid>https://jialin00.com/html/z/os/clock-frequency-multi-cores</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 Around 2007, CPU frequency growth began to slow down or even decrease, but the number of logical cores increased significantly.
 Clock speed, clock frequency, and frequency are the same thing in this ...]]></description>
@@ -225,7 +225,7 @@ Clock speed, clock frequency, and frequency are the same thing in this ...]]></d
             <title><![CDATA[Cloud Provider Network Architecture Comparison: AWS, Azure, and GCP]]></title>
             <link>https://jialin00.com/html/z/cloud/0-cloud-provider-infra-differences</link>
             <guid>https://jialin00.com/html/z/cloud/0-cloud-provider-infra-differences</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 This article explores the differences in how the three major cloud providers design and operate network units, focusing on the configurations of subnets, VPCs, regions, and availability zones.
 Based ...]]></description>
@@ -235,7 +235,7 @@ Based ...]]></description>
             <title><![CDATA[Why Mobile Hotspot IPs Are Not What They Seem]]></title>
             <link>https://jialin00.com/html/z/network/mobile-hotspot-ip</link>
             <guid>https://jialin00.com/html/z/network/mobile-hotspot-ip</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 When using the same WiFi network, we can easily find each other's IP addresses (192.168.0.x) using ifconfig/ipconfig. This is useful for tasks like testing websites on mobile devices, as CSS may ren...]]></description>
@@ -245,7 +245,7 @@ When using the same WiFi network, we can easily find each other's IP addresses (
             <title><![CDATA[Frontend Server-Side Calls and CORS]]></title>
             <link>https://jialin00.com/html/z/frontend/nextjs-cors</link>
             <guid>https://jialin00.com/html/z/frontend/nextjs-cors</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 When dealing with sensitive information such as login or account-related matters, including sessions and tokens, one might wonder how to hide this information instead of having it visible in the bro...]]></description>
@@ -255,7 +255,7 @@ When dealing with sensitive information such as login or account-related matters
             <title><![CDATA[Rewriting Angular 10 Directly with Version 18]]></title>
             <link>https://jialin00.com/html/z/frontend/angular-upgrade</link>
             <guid>https://jialin00.com/html/z/frontend/angular-upgrade</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 I don’t upgrade, I rewrite actually. 😮‍💨
 I recently realized it had been ages since I last played with Angular. Feeling a bit rusty, I decided to use my free time for a try - upgrading my old proje...]]></description>
@@ -265,7 +265,7 @@ I recently realized it had been ages since I last played with Angular. Feeling a
             <title><![CDATA[Serverless: Lambda, API Gateway, DynamoDB Together]]></title>
             <link>https://jialin00.com/html/z/cloud/0-serverless-lambda-apigateway-dynamodb-together</link>
             <guid>https://jialin00.com/html/z/cloud/0-serverless-lambda-apigateway-dynamodb-together</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 https://aws.amazon.com/tw/serverless/
@@ -277,7 +277,7 @@ you don't need to launch an entire backend project. You can simply upload a sing
             <title><![CDATA[Losing Fat for image — Multi-stage builds]]></title>
             <link>https://jialin00.com/html/z/cloud/losing-fat-for-image</link>
             <guid>https://jialin00.com/html/z/cloud/losing-fat-for-image</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 The original Dockerfile uses the complete golang:1.22 image as its base, resulting in a large final image (about 800-900MB) that includes the entire Go development environment, source code, and buil...]]></description>
@@ -287,7 +287,7 @@ The original Dockerfile uses the complete golang:1.22 image as its base, resulti
             <title><![CDATA[Implementing a Go HTTP Server and Websocket with Fargate and ECR]]></title>
             <link>https://jialin00.com/html/z/cloud/fargate-ecs-go-server</link>
             <guid>https://jialin00.com/html/z/cloud/fargate-ecs-go-server</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 
@@ -298,7 +298,7 @@ This article explores AWS Elastic Container Service (ECS), focusing on Fargate a
             <title><![CDATA[brutal solution — docker system prune]]></title>
             <link>https://jialin00.com/html/z/cloud/docker-system-prune</link>
             <guid>https://jialin00.com/html/z/cloud/docker-system-prune</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 Sometimes Dockerfiles have too many layers or remote dependencies (e.g., ADD), making it difficult to identify which layer is causing problems. This is especially annoying when some behaviors come fr...]]></description>
             <content:encoded><![CDATA[brutal solution — docker system prune]]></content:encoded>
@@ -307,7 +307,7 @@ Sometimes Dockerfiles have too many layers or remote dependencies (e.g., ADD), m
             <title><![CDATA[AWS VPC — How Network Traffic Travels Through Components]]></title>
             <link>https://jialin00.com/html/z/cloud/0-vpc-common-components-traffic</link>
             <guid>https://jialin00.com/html/z/cloud/0-vpc-common-components-traffic</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 In a VPC, the Internet Gateway serves as the connection to the internet. Route Tables direct traffic within the VPC and to the IGW. Subnets organize resources and are protected by NACLs at the subnet...]]></description>
             <content:encoded><![CDATA[AWS VPC — How Network Traffic Travels Through Components]]></content:encoded>
@@ -316,7 +316,7 @@ In a VPC, the Internet Gateway serves as the connection to the internet. Route T
             <title><![CDATA[Broad Translators]]></title>
             <link>https://jialin00.com/html/z/os/broad-translators</link>
             <guid>https://jialin00.com/html/z/os/broad-translators</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 Usually what we write in
 
@@ -330,7 +330,7 @@ Not necessarily ...]]></description>
             <title><![CDATA[Python Execution — From Interpreters to Compilers and Packaging tools]]></title>
             <link>https://jialin00.com/html/z/backend/python-execution-tools</link>
             <guid>https://jialin00.com/html/z/backend/python-execution-tools</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 From a performance perspective: Static/AOT compilation > JIT compilation > JIT implementation > Interpreter
 
@@ -342,7 +342,7 @@ Note 1: In the Python world, VM and interpreter are often used interchangeably, 
             <title><![CDATA[Linux Variants: Ubuntu, Kali, Debian, Red Hat, Fedora & CentOS…]]></title>
             <link>https://jialin00.com/html/z/os/unix-linux-variants</link>
             <guid>https://jialin00.com/html/z/os/unix-linux-variants</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 With numerous Linux distributions like Red Hat, CentOS, Debian, and Ubuntu often mentioned, it's easy to get lost in the mix. This guide aims to clear up your confusion and help you better understand...]]></description>
             <content:encoded><![CDATA[Linux Variants: Ubuntu, Kali, Debian, Red Hat, Fedora & CentOS…]]></content:encoded>
@@ -351,7 +351,7 @@ With numerous Linux distributions like Red Hat, CentOS, Debian, and Ubuntu often
             <title><![CDATA[rwxrwxrwx Also, SUID, SGID & SBIT?]]></title>
             <link>https://jialin00.com/html/z/os/special-permission-rwxrwxrwx</link>
             <guid>https://jialin00.com/html/z/os/special-permission-rwxrwxrwx</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 You already know about rwx rwx rwx, which represents owner, group, and others respectively. Each group has its own rwx, and if you're the owner, you look at the first rwx group.
@@ -363,7 +363,7 @@ Using ls -l, you'll...]]></description>
             <title><![CDATA[loopback(127.0.0.1, ::1), localhost, and 0.0.0.0 in Local Development]]></title>
             <link>https://jialin00.com/html/z/network/loopback-localhost-anywhere</link>
             <guid>https://jialin00.com/html/z/network/loopback-localhost-anywhere</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 I found an issue where my backend server was listening on 127.0.0.1:1234, but I couldn't access to it using localhost:1234 in my browser or curl. Initially I thought it’s a backend issue, I found no ...]]></description>
             <content:encoded><![CDATA[loopback(127.0.0.1, ::1), localhost, and 0.0.0.0 in Local Development]]></content:encoded>
@@ -372,7 +372,7 @@ I found an issue where my backend server was listening on 127.0.0.1:1234, but I 
             <title><![CDATA[Linux Network Troubleshooting Tools: nslookup/ping/ssh/netstat/curl/nc]]></title>
             <link>https://jialin00.com/html/z/os/linux-nslookup-curl-ssh-telnet-ping-pong</link>
             <guid>https://jialin00.com/html/z/os/linux-nslookup-curl-ssh-telnet-ping-pong</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 The most commonly used tools are ping and nslookup.
@@ -388,7 +388,7 @@ dig can query specific record types: TXT, A, etc. dig soa.yourdomain...]]></desc
             <title><![CDATA[HTTP Headers: Set-Cookie - SameSite Configuration]]></title>
             <link>https://jialin00.com/html/z/network/http-header-samesite-lax</link>
             <guid>https://jialin00.com/html/z/network/http-header-samesite-lax</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 The issue arose when cookies obtained after logging in at localhost:3000 couldn't be used at thembase-subdomain.localhost:3000.
@@ -401,7 +401,7 @@ SameSite has three ...]]></description>
             <title><![CDATA[HTTP 1.1/2/3]]></title>
             <link>https://jialin00.com/html/z/network/http123</link>
             <guid>https://jialin00.com/html/z/network/http123</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 1 RTT represents a round trip. Below are all 1 RTT.
@@ -413,7 +413,7 @@ Regardless of the HTTP version, TCP always requires a 3-w...]]></description>
             <title><![CDATA[About Chip… Intel, ARM, AMD, Amazon, Apple, etc.]]></title>
             <link>https://jialin00.com/html/z/os/chips</link>
             <guid>https://jialin00.com/html/z/os/chips</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 When I work on Docker and AWS, I discovered errors I hadn't expected when running image. Serious debugging required a certain level of chip knowledge to figure out which computing resources might hav...]]></description>
             <content:encoded><![CDATA[About Chip… Intel, ARM, AMD, Amazon, Apple, etc.]]></content:encoded>
@@ -422,7 +422,7 @@ When I work on Docker and AWS, I discovered errors I hadn't expected when runnin
             <title><![CDATA[Preventing Unexpected Effects of Child Shells in Bash]]></title>
             <link>https://jialin00.com/html/z/os/prevent-child-shell</link>
             <guid>https://jialin00.com/html/z/os/prevent-child-shell</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 In Bash scripting, the creation of child shells, often through pipelines or certain command structures, can lead to unexpected behavior in variable management.
@@ -430,10 +430,22 @@ When having command like find ... | .....]]></description>
             <content:encoded><![CDATA[Preventing Unexpected Effects of Child Shells in Bash]]></content:encoded>
         </item>
         <item>
+            <title><![CDATA[EFS — access point? mount point?]]></title>
+            <link>https://jialin00.com/html/tar.gz/aws/efs-access-point-mount-point</link>
+            <guid>https://jialin00.com/html/tar.gz/aws/efs-access-point-mount-point</guid>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
+            <description><![CDATA[
+A mount point is a local path on your instance or computing resource that connects to a remote disk.
+
+Access points are used by EFS for categorizing and restricting external access.
+For example, EFS ...]]></description>
+            <content:encoded><![CDATA[EFS — access point? mount point?]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[Best Practice for HTTP Traffic in CloudFront Distribution]]></title>
             <link>https://jialin00.com/html/tar.gz/aws/cf-distribution-viewer-protocol</link>
             <guid>https://jialin00.com/html/tar.gz/aws/cf-distribution-viewer-protocol</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 This can lead to errors when I don’t explicitly write https://, resulting in a poor user experience.
 
@@ -448,7 +460,7 @@ But I noticed that the Firefox browser aut...]]></description>
             <title><![CDATA[API Gateway — Enabling CORS Doesn't Automatically Allow OPTIONS]]></title>
             <link>https://jialin00.com/html/tar.gz/aws/api-gateway-cors-options</link>
             <guid>https://jialin00.com/html/tar.gz/aws/api-gateway-cors-options</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 Typically, browsers automatically include OPTIONS requests for cross-origin requests. So why isn't OPTIONS automatically allowed when CORS is enabled?
 Why do we need to manually check to allow the OP...]]></description>
@@ -458,7 +470,7 @@ Why do we need to manually check to allow the OP...]]></description>
             <title><![CDATA[Differences: API Gateway vs. App Mesh]]></title>
             <link>https://jialin00.com/html/tar.gz/aws/api-gateway-app-mesh</link>
             <guid>https://jialin00.com/html/tar.gz/aws/api-gateway-app-mesh</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 They both have a sense of integration.
 Service Mesh is the concept, while AWS App Mesh is AWS's implementation.
@@ -472,7 +484,7 @@ Service will be terminated on 2026/09/30, they're asking you to migrate to ECS S
             <title><![CDATA[Differences: Resource Naming Prefixes - AWS vs. Amazon]]></title>
             <link>https://jialin00.com/html/tar.gz/aws/aws-amazon-service-prefix</link>
             <guid>https://jialin00.com/html/tar.gz/aws/aws-amazon-service-prefix</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 AWS services use either Amazon or AWS as prefixes. For example:
@@ -488,7 +500,7 @@ https://aws.amazon.com/documentation-overview/
             <title><![CDATA[MySQL — InnoDB vs. MyISAM]]></title>
             <link>https://jialin00.com/html/tar.gz/sql/mysql-innodb-myisam</link>
             <guid>https://jialin00.com/html/tar.gz/sql/mysql-innodb-myisam</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 For example, update and insert operations:
 
@@ -502,7 +514,7 @@ MyISAM does not restrict sequential or non-sequential reads, which can be advant
             <title><![CDATA[Differences: Primary Key, Foreign Key, Index and Unique Contraint]]></title>
             <link>https://jialin00.com/html/tar.gz/sql/sql-pk-fk-unique-constraint-index</link>
             <guid>https://jialin00.com/html/tar.gz/sql/sql-pk-fk-unique-constraint-index</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 Uniquely identifies each record in a table. Cannot be NULL
@@ -516,7 +528,7 @@ Plus, here’s how for...]]></description>
             <title><![CDATA[Differences: Sharding vs. Partition]]></title>
             <link>https://jialin00.com/html/tar.gz/sql/sql-sharding-partition</link>
             <guid>https://jialin00.com/html/tar.gz/sql/sql-sharding-partition</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 Both techniques aim to reduce the size of original tables
@@ -529,7 +541,7 @@ Sharding involves distributing data across multiple databases, typically on sepa
             <title><![CDATA[Meaning of dualstack prefix in ALB]]></title>
             <link>https://jialin00.com/html/tar.gz/aws/dualstack-alb</link>
             <guid>https://jialin00.com/html/tar.gz/aws/dualstack-alb</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 When you set up a load balancer in AWS, you can use either of these two addresses:
@@ -544,7 +556,7 @@ For a longer explanation: It implies DNS servers to return A records (v4) ...]]>
             <title><![CDATA[Differences: Linux gid vs. groups]]></title>
             <link>https://jialin00.com/html/tar.gz/linux/linux-gid-groups</link>
             <guid>https://jialin00.com/html/tar.gz/linux/linux-gid-groups</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 
@@ -556,7 +568,7 @@ This is similar to being a VIP member at a restaurant. You have a physical membe
             <title><![CDATA[Differences: Go fmt vs. log and other print stuffs]]></title>
             <link>https://jialin00.com/html/tar.gz/go/go-fmt-log-diff</link>
             <guid>https://jialin00.com/html/tar.gz/go/go-fmt-log-diff</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 
@@ -575,7 +587,7 @@ https:...]]></description>
             <title><![CDATA[Differences: Go make vs. new]]></title>
             <link>https://jialin00.com/html/tar.gz/go/go-make-new</link>
             <guid>https://jialin00.com/html/tar.gz/go/go-make-new</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 In Go, new and make are both used for memory allocation, but they serve different purposes:
@@ -591,7 +603,7 @@ make is used exclusively for these types because they require additional initial
             <title><![CDATA[Differences: Go pointers * vs. &]]></title>
             <link>https://jialin00.com/html/tar.gz/go/go-pointer-operators</link>
             <guid>https://jialin00.com/html/tar.gz/go/go-pointer-operators</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 
@@ -607,7 +619,7 @@ https://medium.com/analytics-vidhya/pointers-in-golang-1a679b464849
             <title><![CDATA[Glossary : Concurrency, Parallelism, Multitasking, etc]]></title>
             <link>https://jialin00.com/html/tar.gz/etc/concurrency-parallelism-multitasking</link>
             <guid>https://jialin00.com/html/tar.gz/etc/concurrency-parallelism-multitasking</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 Parallelism, multitasking, and concurrency are general concepts
 
@@ -622,7 +634,7 @@ The m...]]></description>
             <title><![CDATA[Differences: pip install vs. python -m pip install]]></title>
             <link>https://jialin00.com/html/tar.gz/etc/pip-install</link>
             <guid>https://jialin00.com/html/tar.gz/etc/pip-install</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 https://snarky.ca/why-you-should-use-python-m-pip/
 
@@ -635,7 +647,7 @@ python -m pip install isn't abo...]]></description>
             <title><![CDATA[Difference: Unix-like command which vs. where]]></title>
             <link>https://jialin00.com/html/tar.gz/go/unix-where-which</link>
             <guid>https://jialin00.com/html/tar.gz/go/unix-where-which</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 
@@ -647,7 +659,7 @@ python -m pip install isn't abo...]]></description>
             <title><![CDATA[Compressing git Legacy Commits]]></title>
             <link>https://jialin00.com/html/tar.gz/etc/git-legacy-commits</link>
             <guid>https://jialin00.com/html/tar.gz/etc/git-legacy-commits</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 Many legacy commits were messy and disorganized.
 In the world of software, Git repo often accumulate hundreds or even thousands of commits over time. There are scenarios where you might want to compr...]]></description>
@@ -657,7 +669,7 @@ In the world of software, Git repo often accumulate hundreds or even thousands o
             <title><![CDATA[Differences: Linux find exec command \;   +]]></title>
             <link>https://jialin00.com/html/tar.gz/linux/find-exec-plus-escaped-semicolon</link>
             <guid>https://jialin00.com/html/tar.gz/linux/find-exec-plus-escaped-semicolon</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 one time job
 one at a time
@@ -673,7 +685,7 @@ https://as...]]></description>
             <title><![CDATA[Differences: Dockerfile COPY 👍 v.s. ADD]]></title>
             <link>https://jialin00.com/html/tar.gz/docker/docker-copy-add</link>
             <guid>https://jialin00.com/html/tar.gz/docker/docker-copy-add</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 COPY is the safer and preferred option.
 Suitable for scenarios where you need to fetch files from remote sources and automatically extract them
@@ -686,7 +698,7 @@ Mo...]]></description>
             <title><![CDATA[Glossary: TTY, Terminal and shell]]></title>
             <link>https://jialin00.com/html/tar.gz/etc/tty-terminal-shell</link>
             <guid>https://jialin00.com/html/tar.gz/etc/tty-terminal-shell</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 User → Terminal → Shell - -> Kernel → Hardware
 Examples: Linux Kernel, Darwin (macOS)
@@ -697,7 +709,7 @@ Abstracts hardware complexities, enabling high-level applications like terminals
             <title><![CDATA[Differences: Dockerfile CMD vs. ENTRYPOINT]]></title>
             <link>https://jialin00.com/html/tar.gz/docker/dockerfile-cmd-entrypoint</link>
             <guid>https://jialin00.com/html/tar.gz/docker/dockerfile-cmd-entrypoint</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 We're discussing these forms first because they'll be important for understanding the subsequent extended topics.
 In Dockerfiles, commands can be written in two forms:
@@ -708,7 +720,7 @@ https://docs.docker.com/referen...]]></description>
             <title><![CDATA[Glossary: Internet v.s. Web]]></title>
             <link>https://jialin00.com/html/tar.gz/etc/internet-web</link>
             <guid>https://jialin00.com/html/tar.gz/etc/internet-web</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 The Web uses HyperText Transfer Protocol (HTTP) for communication and is a service based on the entire network. When you open a browser, you're using one type of Web protocol.
 https://developer.mozil...]]></description>
@@ -718,7 +730,7 @@ https://developer.mozil...]]></description>
             <title><![CDATA[Differences: Linux wget vs. curl]]></title>
             <link>https://jialin00.com/html/tar.gz/linux/wget-curl</link>
             <guid>https://jialin00.com/html/tar.gz/linux/wget-curl</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 download remote resources
@@ -734,7 +746,7 @@ Supp...]]></description>
             <title><![CDATA[Differences: Go go mod tidy vs. go mod download]]></title>
             <link>https://jialin00.com/html/tar.gz/go/go-mod-tidy-or-download</link>
             <guid>https://jialin00.com/html/tar.gz/go/go-mod-tidy-or-download</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 just download
 
@@ -750,7 +762,7 @@ if you writing some automation script, just use download is fine...]]></descript
             <title><![CDATA[Differences: Go array ‘s len() vs. cap()]]></title>
             <link>https://jialin00.com/html/tar.gz/go/len-cap</link>
             <guid>https://jialin00.com/html/tar.gz/go/len-cap</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 
@@ -761,7 +773,7 @@ After sliced, you can still get original capacity from the array you slice from.
             <title><![CDATA[Dockerfile - unenforceable EXPOSE]]></title>
             <link>https://jialin00.com/html/tar.gz/docker/expose</link>
             <guid>https://jialin00.com/html/tar.gz/docker/expose</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 It has no affect on anything about container's network configuration.
@@ -775,7 +787,7 @@ For example, if a ser...]]></description>
             <title><![CDATA[Glossary: Docker Hub & Registry]]></title>
             <link>https://jialin00.com/html/tar.gz/docker/hub-registry</link>
             <guid>https://jialin00.com/html/tar.gz/docker/hub-registry</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 The place where images are stored is called a registry. For example, AWS has its own ECR.
@@ -787,7 +799,7 @@ The place where images are stored is called a registry. For example, AWS has its
             <title><![CDATA[Differences: docker compose stop & down]]></title>
             <link>https://jialin00.com/html/tar.gz/docker/docker-compose-up-down</link>
             <guid>https://jialin00.com/html/tar.gz/docker/docker-compose-up-down</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 https://stackoverflow.com/questions/46428420/docker-compose-up-down-stop-start-difference
 Just stop service
@@ -800,7 +812,7 @@ down —rmi <all | local>:...]]></description>
             <title><![CDATA[Glossary: Image, Instance and Container?]]></title>
             <link>https://jialin00.com/html/tar.gz/docker/image-instance-container</link>
             <guid>https://jialin00.com/html/tar.gz/docker/image-instance-container</guid>
-            <pubDate>Sun, 20 Oct 2024 11:18:11 GMT</pubDate>
+            <pubDate>Sun, 20 Oct 2024 14:41:15 GMT</pubDate>
             <description><![CDATA[
 
 
